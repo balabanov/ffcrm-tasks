@@ -12,7 +12,7 @@ module FfcrmTasks
     #   Load all stuff that belongs to ffcrm-tasks engine. 
     #
     def engine_eager_load! 
-      railties.all(&:eager_load!)
+      # railties.all(&:eager_load!)
       config.eager_load_paths.each do |load_path|
         matcher = /\A#{Regexp.escape(load_path)}\/(.*)\.rb\Z/
         Dir.glob("#{load_path}/**/*.rb").sort.each do |file|
