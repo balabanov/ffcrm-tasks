@@ -46,6 +46,11 @@ class TasksController < EntitiesController
     @bucket = Setting.unroll(:task_bucket)[1..-1] << [ t(:due_specific_date, :default => 'On Specific Date...'), :specific_time ]
     @category = Setting.unroll(:task_category)
 
+    logger.debug "view: #{@view.inspect}"
+    logger.debug "task: #{@task.inspect}"
+    logger.debug "bucket: #{@bucket.inspect}"
+    logger.debug "category: #{@category.inspect}"
+
     if params[:related]
       model, id = params[:related].split(/_(\d+)/)
       if related = model.classify.constantize.my.find_by_id(id)
