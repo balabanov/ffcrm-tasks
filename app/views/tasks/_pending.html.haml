@@ -4,7 +4,7 @@
   - else
     .strip.white #{t :other}
 
-  - is_my = pending.my?(current_user)
+  - is_my = pending.my?(current_user.id)
 
   .tools
     - if can? :update, pending
